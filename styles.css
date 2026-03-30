@@ -195,7 +195,7 @@ body:hover .cursor-glow {
 .nav-logo {
     display: flex;
     align-items: center;
-    z-index: 1001;
+    z-index: 9999;
 }
 
 .nav-logo-img {
@@ -1276,21 +1276,24 @@ body:hover .cursor-glow {
 @media (max-width: 768px) {
     .nav-links {
         position: fixed;
-        inset: 0;
-        background: var(--color-bg);
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: #0a0a0f;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 32px;
+        transform: translateX(100%);
         opacity: 0;
-        visibility: hidden;
-        transition: var(--transition);
-        z-index: 1000;
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+        z-index: 9998;
     }
 
     .nav-links.active {
+        transform: translateX(0);
         opacity: 1;
-        visibility: visible;
     }
 
     .nav-links .nav-link {
@@ -1306,6 +1309,7 @@ body:hover .cursor-glow {
 
     .nav-toggle {
         display: flex;
+        z-index: 9999;
     }
 
     .section-grid--2col {
