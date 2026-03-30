@@ -116,7 +116,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    const particleCount = Math.min(80, Math.floor(window.innerWidth / 20));
+    // Fewer particles on mobile for performance
+    const isMobile = window.innerWidth < 768;
+    const particleCount = isMobile ? 25 : Math.min(60, Math.floor(window.innerWidth / 25));
     for (let i = 0; i < particleCount; i++) {
         particles.push(new Particle());
     }
@@ -193,7 +195,8 @@ document.addEventListener('DOMContentLoaded', () => {
             p.update();
             p.draw();
         });
-        drawConnections();
+        // Skip connections on mobile — too expensive
+        if (!isMobile) drawConnections();
         animationId = requestAnimationFrame(animateParticles);
     }
 
