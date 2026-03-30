@@ -1277,14 +1277,15 @@ body:hover .cursor-glow {
     .nav-links {
         position: fixed;
         inset: 0;
-        background: rgba(10, 10, 15, 0.98);
-        backdrop-filter: blur(20px);
+        background: var(--color-bg);
         flex-direction: column;
         justify-content: center;
-        gap: 24px;
+        align-items: center;
+        gap: 32px;
         opacity: 0;
         visibility: hidden;
         transition: var(--transition);
+        z-index: 1000;
     }
 
     .nav-links.active {
@@ -1293,7 +1294,14 @@ body:hover .cursor-glow {
     }
 
     .nav-links .nav-link {
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+
+    .nav-links .nav-link--cta {
+        margin-top: 16px;
         font-size: 1.25rem;
+        padding: 14px 32px;
     }
 
     .nav-toggle {
