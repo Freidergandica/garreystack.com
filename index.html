@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GarreyStack – Tecnología que evoluciona contigo</title>
+    <meta name="description" content="Transformamos ideas complejas en soluciones digitales de alto impacto. Desarrollo de software a medida con enfoque en escalabilidad y resultados de negocio.">
+    <meta name="keywords" content="GarreyStack, desarrollo software, Venezuela, transformación digital, aplicaciones móviles, plataformas web">
+    <meta property="og:title" content="GarreyStack – Tecnología que evoluciona contigo">
+    <meta property="og:description" content="Diseñamos y desarrollamos software a medida con un enfoque en escalabilidad, experiencia de usuario y resultados de negocio.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://garreystack.com/og-image.png">
+    <meta property="og:url" content="https://garreystack.com">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#6c5ce7">
+    <!-- Favicon SVG -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%236c5ce7'/%3E%3Cstop offset='50%25' stop-color='%23a29bfe'/%3E%3Cstop offset='100%25' stop-color='%2300cec9'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='url(%23g)'/%3E%3Ctext x='50' y='68' font-family='monospace' font-size='45' font-weight='bold' fill='white' text-anchor='middle'%3E%26lt;/%26gt;%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-logo">
+                <svg class="loader-svg" viewBox="0 0 120 120" width="120" height="120">
+                    <defs>
+                        <linearGradient id="loaderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#6c5ce7"/>
+                            <stop offset="50%" stop-color="#a29bfe"/>
+                            <stop offset="100%" stop-color="#00cec9"/>
+                        </linearGradient>
+                    </defs>
+                    <rect class="loader-rect" x="10" y="10" width="100" height="100" rx="24" fill="none" stroke="url(#loaderGrad)" stroke-width="2"/>
+                    <text class="loader-text-svg" x="60" y="72" font-family="monospace" font-size="40" font-weight="bold" fill="url(#loaderGrad)" text-anchor="middle">&lt;/&gt;</text>
+                </svg>
+            </div>
+            <div class="loader-bar">
+                <div class="loader-bar-fill" id="loaderBar"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cursor glow effect -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Particle canvas -->
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">
+                <span class="logo-icon">&lt;/&gt;</span>
+                <span class="logo-text">GarreyStack</span>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="#esencia" class="nav-link">Nosotros</a>
+                <a href="#servicios" class="nav-link">Servicios</a>
+                <a href="#diferencial" class="nav-link">¿Por qué?</a>
+                <a href="#proyectos" class="nav-link">Proyectos</a>
+                <a href="#historia" class="nav-link">Historia</a>
+                <a href="#contacto" class="nav-link nav-link--cta">Contacto</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Menú">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <div class="hero-gradient"></div>
+            <div class="hero-grid"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge reveal">
+                <span class="material-symbols-outlined">rocket_launch</span>
+                Innovación desde Venezuela para el mundo
+            </div>
+            <h1 class="hero-title" id="heroTitle">
+                <span class="word">Transformamos</span> <span class="word">ideas</span> <span class="word">complejas</span> <span class="word">en</span>
+                <span class="word word--accent">soluciones</span> <span class="word word--accent">digitales</span>
+                <span class="word">de</span> <span class="word">alto</span> <span class="word">impacto.</span>
+            </h1>
+            <p class="hero-subtitle reveal">
+                En GarreyStack, diseñamos y desarrollamos software a medida con un enfoque en escalabilidad, experiencia de usuario y resultados de negocio.
+            </p>
+            <div class="hero-actions reveal">
+                <a href="#contacto" class="btn btn--primary magnetic">
+                    <span>Impulsa tu proyecto hoy</span>
+                    <span class="material-symbols-outlined">arrow_forward</span>
+                </a>
+                <a href="#servicios" class="btn btn--ghost magnetic">
+                    <span>Conoce nuestros servicios</span>
+                </a>
+            </div>
+            <div class="hero-stats reveal">
+                <div class="stat">
+                    <span class="stat-number" data-target="100">0</span><span class="stat-suffix">%</span>
+                    <span class="stat-label">Compromiso</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-number" data-target="24">0</span><span class="stat-suffix">/7</span>
+                    <span class="stat-label">Soporte</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-icon material-symbols-outlined">verified</span>
+                    <span class="stat-label">Calidad global</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll-indicator">
+            <div class="scroll-line"></div>
+            <span>Scroll</span>
+        </div>
+    </section>
+
+    <!-- Nuestra Esencia -->
+    <section class="section section--esencia" id="esencia">
+        <div class="container">
+            <div class="section-grid section-grid--2col">
+                <div class="section-left">
+                    <span class="section-tag reveal">
+                        <span class="material-symbols-outlined">favorite</span>
+                        Nuestra Esencia
+                    </span>
+                    <h2 class="section-title reveal">
+                        Más que código, construimos el
+                        <span class="text-gradient">futuro de tu marca.</span>
+                    </h2>
+                </div>
+                <div class="section-right">
+                    <p class="section-text reveal">
+                        Somos un equipo comprometido con la excelencia tecnológica. Creemos que el software no solo debe funcionar, sino que debe ser el motor que impulse el crecimiento de una empresa.
+                    </p>
+                    <p class="section-text reveal">
+                        En GarreyStack, combinamos innovación técnica con una visión humana para crear herramientas digitales que marquen la diferencia.
+                    </p>
+                    <div class="essence-values reveal">
+                        <div class="essence-value">
+                            <span class="material-symbols-outlined">code</span>
+                            <span>Excelencia técnica</span>
+                        </div>
+                        <div class="essence-value">
+                            <span class="material-symbols-outlined">psychology</span>
+                            <span>Visión humana</span>
+                        </div>
+                        <div class="essence-value">
+                            <span class="material-symbols-outlined">trending_up</span>
+                            <span>Impulso al crecimiento</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Misión y Visión -->
+    <section class="section section--mission">
+        <div class="container">
+            <div class="mission-grid">
+                <div class="mission-card reveal">
+                    <div class="mission-card-icon">
+                        <span class="material-symbols-outlined">flag</span>
+                    </div>
+                    <h3>Misión</h3>
+                    <p>Impulsar la transformación digital en Venezuela mediante el desarrollo de software de clase mundial, diseñado por talento local con estándares globales. Garantizamos el acceso a la innovación tecnológica, creando soluciones eficientes y humanas que fortalezcan el tejido empresarial y mejoren la vida cotidiana de nuestra gente.</p>
+                </div>
+                <div class="mission-card reveal">
+                    <div class="mission-card-icon">
+                        <span class="material-symbols-outlined">visibility</span>
+                    </div>
+                    <h3>Visión</h3>
+                    <p>Ser el referente tecnológico que lidere el renacimiento digital de Venezuela, demostrando que desde nuestro país se exporta excelencia. Aspiramos a ser el puente entre las ideas más ambiciosas y las realidades tecnológicas más robustas, posicionando a GarreyStack como el aliado estratégico que transforma el potencial nacional en impacto global.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios -->
+    <section class="section section--servicios" id="servicios">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag reveal">
+                    <span class="material-symbols-outlined">design_services</span>
+                    Servicios
+                </span>
+                <h2 class="section-title section-title--center reveal">
+                    Lo que <span class="text-gradient">hacemos</span>
+                </h2>
+                <p class="section-subtitle reveal">Soluciones integrales para cada etapa de tu transformación digital.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card reveal" data-service="1">
+                    <div class="service-card-number">01</div>
+                    <div class="service-card-icon">
+                        <span class="material-symbols-outlined">smartphone</span>
+                    </div>
+                    <h3>Desarrollo de Aplicaciones Móviles</h3>
+                    <p>Creamos experiencias nativas y robustas que conectan a las marcas con sus usuarios en cualquier lugar.</p>
+                    <div class="service-tags">
+                        <span>iOS</span><span>Android</span><span>Flutter</span><span>React Native</span>
+                    </div>
+                </div>
+                <div class="service-card reveal" data-service="2">
+                    <div class="service-card-number">02</div>
+                    <div class="service-card-icon">
+                        <span class="material-symbols-outlined">web</span>
+                    </div>
+                    <h3>Plataformas Web a Medida</h3>
+                    <p>Soluciones escalables y optimizadas, desde landing pages estratégicas hasta ecosistemas complejos.</p>
+                    <div class="service-tags">
+                        <span>React</span><span>Next.js</span><span>Node.js</span><span>Python</span>
+                    </div>
+                </div>
+                <div class="service-card reveal" data-service="3">
+                    <div class="service-card-number">03</div>
+                    <div class="service-card-icon">
+                        <span class="material-symbols-outlined">palette</span>
+                    </div>
+                    <h3>Identidad de Marca Digital</h3>
+                    <p>No solo construimos la herramienta; te ayudamos a definir los valores y la voz que te harán destacar en el mercado.</p>
+                    <div class="service-tags">
+                        <span>Branding</span><span>UI/UX</span><span>Estrategia</span>
+                    </div>
+                </div>
+                <div class="service-card reveal" data-service="4">
+                    <div class="service-card-number">04</div>
+                    <div class="service-card-icon">
+                        <span class="material-symbols-outlined">settings_suggest</span>
+                    </div>
+                    <h3>Optimización y Consultoría</h3>
+                    <p>Rediseñamos y mejoramos productos existentes para maximizar el beneficio tanto del comercio como del usuario final.</p>
+                    <div class="service-tags">
+                        <span>Auditoría</span><span>Performance</span><span>SEO</span>
+                    </div>
+                </div>
+                <div class="service-card reveal" data-service="5">
+                    <div class="service-card-number">05</div>
+                    <div class="service-card-icon">
+                        <span class="material-symbols-outlined">cloud</span>
+                    </div>
+                    <h3>Infraestructura Cloud & DevOps</h3>
+                    <p>Diseñamos arquitecturas en la nube escalables, seguras y automatizadas que garantizan la disponibilidad y rendimiento de tus aplicaciones.</p>
+                    <div class="service-tags">
+                        <span>AWS</span><span>Docker</span><span>CI/CD</span><span>Kubernetes</span>
+                    </div>
+                </div>
+                <div class="service-card reveal" data-service="6">
+                    <div class="service-card-number">06</div>
+                    <div class="service-card-icon">
+                        <span class="material-symbols-outlined">smart_toy</span>
+                    </div>
+                    <h3>Inteligencia Artificial & Automatización</h3>
+                    <p>Integramos IA y automatización inteligente en tus procesos para reducir costos, acelerar operaciones y tomar decisiones basadas en datos.</p>
+                    <div class="service-tags">
+                        <span>Machine Learning</span><span>Chatbots</span><span>APIs IA</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Por qué GarreyStack -->
+    <section class="section section--diferencial" id="diferencial">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag reveal">
+                    <span class="material-symbols-outlined">star</span>
+                    Diferencial
+                </span>
+                <h2 class="section-title section-title--center reveal">
+                    ¿Por qué elegir <span class="text-gradient">GarreyStack</span>?
+                </h2>
+            </div>
+            <div class="diferencial-grid">
+                <div class="diferencial-card reveal">
+                    <div class="diferencial-icon">
+                        <span class="material-symbols-outlined">handshake</span>
+                    </div>
+                    <h3>Estructura Equitativa</h3>
+                    <p>Nuestra base garantiza un compromiso total en cada línea de código y cada decisión estratégica.</p>
+                </div>
+                <div class="diferencial-card reveal">
+                    <div class="diferencial-icon">
+                        <span class="material-symbols-outlined">query_stats</span>
+                    </div>
+                    <h3>Visión de Negocio</h3>
+                    <p>No entregamos proyectos, entregamos soluciones que entienden los costos de adquisición y las dinámicas del marketing digital. Somos la tecnología que trabaja para ti.</p>
+                </div>
+                <div class="diferencial-card reveal">
+                    <div class="diferencial-icon">
+                        <span class="material-symbols-outlined">bolt</span>
+                    </div>
+                    <h3>Tecnología de Vanguardia</h3>
+                    <p>Utilizamos las herramientas más eficientes del mercado para asegurar que tu inversión sea duradera y segura.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proyectos -->
+    <section class="section section--proyectos" id="proyectos">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag reveal">
+                    <span class="material-symbols-outlined">work</span>
+                    Proyectos
+                </span>
+                <h2 class="section-title section-title--center reveal">
+                    Casos de <span class="text-gradient">éxito</span>
+                </h2>
+                <p class="section-subtitle reveal">Empresas que ya confían en nosotros.</p>
+            </div>
+            <div class="projects-showcase">
+                <div class="project-card reveal">
+                    <div class="project-card-inner">
+                        <div class="project-card-badge">Cliente destacado</div>
+                        <div class="project-card-logo">
+                            <span class="project-logo-text">Papola</span>
+                        </div>
+                        <h3>Papola</h3>
+                        <p>Primer cliente que confió en nuestra visión. Juntos construimos una solución digital que transformó su operación y presencia en el mercado.</p>
+                        <div class="project-card-tech">
+                            <span class="material-symbols-outlined">check_circle</span>
+                            Solución integral entregada
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card project-card--cta reveal">
+                    <div class="project-card-inner">
+                        <span class="material-symbols-outlined project-cta-icon">add_circle</span>
+                        <h3>Tu proyecto aquí</h3>
+                        <p>¿Listo para transformar tu idea en realidad? Hablemos de cómo podemos impulsar tu negocio.</p>
+                        <a href="#contacto" class="btn btn--primary btn--sm magnetic">
+                            <span>Comencemos</span>
+                            <span class="material-symbols-outlined">arrow_forward</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nuestra Historia -->
+    <section class="section section--historia" id="historia">
+        <div class="container">
+            <div class="section-grid section-grid--2col">
+                <div class="section-left">
+                    <span class="section-tag reveal">
+                        <span class="material-symbols-outlined">auto_stories</span>
+                        Nuestra Historia
+                    </span>
+                    <h2 class="section-title reveal">
+                        Innovar desde <span class="text-gradient">aquí.</span>
+                    </h2>
+                </div>
+                <div class="section-right">
+                    <p class="section-text section-text--large reveal">
+                        Después de años absorbiendo las mejores prácticas y tendencias tecnológicas alrededor del mundo, decidimos que el mejor lugar para innovar es aquí.
+                    </p>
+                    <p class="section-text reveal">
+                        En GarreyStack, combinamos esa visión internacional con la pasión por nuestra tierra. Estamos para aportar, para construir y para demostrar que en Venezuela la tecnología no tiene límites.
+                    </p>
+                    <div class="historia-highlight reveal">
+                        <span class="material-symbols-outlined">format_quote</span>
+                        <blockquote>El mejor lugar para crear el futuro es desde donde late tu pasión.</blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="section section--contacto" id="contacto">
+        <div class="container">
+            <div class="contacto-wrapper">
+                <div class="contacto-info reveal">
+                    <span class="section-tag">
+                        <span class="material-symbols-outlined">mail</span>
+                        Contacto
+                    </span>
+                    <h2 class="section-title">
+                        ¿Tienes un proyecto en mente?
+                        <span class="text-gradient">Hablemos.</span>
+                    </h2>
+                    <p class="section-text">Cuéntanos tu idea y juntos la convertiremos en una solución digital de alto impacto.</p>
+                    <div class="contacto-links">
+                        <a href="https://wa.me/584121917614?text=Hola%2C%20me%20interesa%20saber%20m%C3%A1s%20sobre%20los%20servicios%20de%20GarreyStack" class="contacto-link" target="_blank" rel="noopener noreferrer">
+                            <svg class="contacto-icon-svg" viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                            +58 412-1917614
+                        </a>
+                        <a href="mailto:hola@garreystack.com" class="contacto-link">
+                            <span class="material-symbols-outlined">email</span>
+                            hola@garreystack.com
+                        </a>
+                    </div>
+                </div>
+                <form class="contacto-form reveal" id="contactForm" action="https://formsubmit.co/hola@garreystack.com" method="POST">
+                    <!-- FormSubmit config -->
+                    <input type="hidden" name="_subject" value="Nuevo mensaje desde GarreyStack.com">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="box">
+                    <input type="text" name="_honey" style="display:none">
+                    <div class="form-group">
+                        <input type="text" id="nombre" name="nombre" required placeholder=" " autocomplete="name">
+                        <label for="nombre">Tu nombre</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" required placeholder=" " autocomplete="email">
+                        <label for="email">Tu email</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="mensaje" name="mensaje" rows="4" required placeholder=" "></textarea>
+                        <label for="mensaje">Cuéntanos tu idea</label>
+                    </div>
+                    <button type="submit" class="btn btn--primary btn--full" id="submitBtn">
+                        <span>Enviar mensaje</span>
+                        <span class="material-symbols-outlined">send</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <a href="#" class="nav-logo">
+                        <span class="logo-icon">&lt;/&gt;</span>
+                        <span class="logo-text">GarreyStack</span>
+                    </a>
+                    <p class="footer-slogan">Tecnología que evoluciona contigo.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#servicios">Servicios</a>
+                    <a href="#proyectos">Proyectos</a>
+                    <a href="#contacto">Contacto</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 GarreyStack. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/584121917614?text=Hola%2C%20me%20interesa%20saber%20m%C3%A1s%20sobre%20los%20servicios%20de%20GarreyStack" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+        <svg viewBox="0 0 24 24" width="28" height="28" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
